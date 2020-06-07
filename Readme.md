@@ -1,6 +1,6 @@
 # mDNS Tunneller
 
-![license: CC-BY-NC-SA-4.0](https://img.shields.io/github/license/toxuin/mdns-tunneller) ![docker pulls](https://img.shields.io/docker/pulls/toxuin/mdns-tunneller)
+![docker pulls](https://img.shields.io/docker/pulls/toxuin/mdns-tunneller)
 
 ⚠️ Warning: you can do serious damage to the network(s) you are running this in. Use this only as a last resort measure, when you have absolutely exhausted all other options. Try [avahi-reflector](https://linux.die.net/man/5/avahi-daemon.conf) and [mdns-repeater](https://bitbucket.org/geekman/mdns-repeater) first.
 
