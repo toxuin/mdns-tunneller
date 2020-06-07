@@ -1,0 +1,10 @@
+port: PORT
+enableLoopback: ENABLE_LOOPBACK
+interface: INTERFACE
+sendersBlacklist:
+  __name: SENDERS_BLACKLIST
+  __format: yaml
+serviceWhitelist:
+  __name: SERVICE_WHITELIST
+  __format: yaml
+remote: REMOTE

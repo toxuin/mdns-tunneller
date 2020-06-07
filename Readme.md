@@ -24,9 +24,19 @@ By using mDNS Tunneller you can expose your private details to somewhere they're
 
 Default configuration values are stored in `config/defaul.yml`, however it's not advised to edit this file directly as this will mark your git tree with uncommitted changes. Instead, create a `local.yml` file in `config` directory and set any values you want to override there.
 
+#### Configuration with Environmental Variables
+
+You can use environmental variables to override every configuration parameter from `config/default.yml`. Check out file `custom-environment-variables.yml` for the list of all names of environmental variables.
+
+To specify arrays, provide them in yaml format:
+
+```
+SENDERS_BLACKLIST='[192.168.1.69, 192.168.10.11]'
+```
+
 ### Installation
 
-mDNS Tunneller requires NodeJS 12+ and npm to be installed.
+mDNS Tunneller requires Node.js 10+ and npm to be installed.
 
 Both client and server will need to pull this repo and install all the dependencies:
 
