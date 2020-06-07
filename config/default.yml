@@ -1,0 +1,13 @@
+port: 42069
+enableLoopback: false
+interface: 0.0.0.0
+
+sendersBlacklist:
+  - '127.0.0.1'
+
+serviceWhitelist:
+  - '_homekit._tcp.local'
+  - '_hap._tcp.local'
+
+# OVERRIDE THIS TO START AS A CLIENT:
+# remote: 192.168.1.10

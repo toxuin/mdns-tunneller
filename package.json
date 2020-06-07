@@ -1,0 +1,26 @@
+{
+  "name": "mdns-tunneler",
+  "version": "0.0.1",
+  "description": "Tunnels two (or more) mDNS domains together through websockets",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "mdns",
+    "tunnel",
+    "multicast"
+  ],
+  "author": "toxuin",
+  "license": "CC-BY-NC-SA-4.0",
+  "dependencies": {
+    "config": "^3.3.1",
+    "debug": "^4.1.1",
+    "js-yaml": "^3.14.0",
+    "lodash": "^4.17.15",
+    "multicast-dns": "^7.2.2",
+    "primus": "^7.3.4",
+    "ws": "^7.3.0"
+  }
+}
