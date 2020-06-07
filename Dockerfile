@@ -5,6 +5,8 @@ LABEL repo="https://github.com/toxuin/mdns-tuneller"
 WORKDIR /app
 VOLUME /app/config/
 
+EXPOSE 42069
+
 COPY . .
 
 RUN npm install --only=production

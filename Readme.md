@@ -1,5 +1,7 @@
 # mDNS Tunneller
 
+![license: CC-BY-NC-SA-4.0](https://img.shields.io/github/license/toxuin/mdns-tunneller) ![docker pulls](https://img.shields.io/docker/pulls/toxuin/mdns-tunneller)
+
 ⚠️ Warning: you can do serious damage to the network(s) you are running this in. Use this only as a last resort measure, when you have absolutely exhausted all other options. Try [avahi-reflector](https://linux.die.net/man/5/avahi-daemon.conf) and [mdns-repeater](https://bitbucket.org/geekman/mdns-repeater) first.
 
 ### What does it do
@@ -31,6 +33,12 @@ Both client and server will need to pull this repo and install all the dependenc
 ```shell script
 git pull https://github.com/toxuin/mdns-tunneller
 npm install
+```
+
+Or, you can use Docker:
+
+```shell script
+docker run -v your_config_file.yml:/app/config/local.yml -p 42069:42069 toxuin/mdns-tunneller
 ```
 
 Then, on the server adjust the interface to be listening at in `config/local.yml` (by default it listens on all interfaces, `0.0.0.0`):
