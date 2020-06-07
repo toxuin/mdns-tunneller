@@ -1,5 +1,5 @@
 {
-  "name": "mdns-tunneler",
+  "name": "mdns-tunneller",
   "version": "0.0.1",
   "description": "Tunnels two (or more) mDNS domains together through websockets",
   "main": "index.js",
