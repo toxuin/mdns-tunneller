@@ -21,12 +21,15 @@ const run = async () => {
     const linkPacket = { peerInfo, data: transformedPacket, type };
 
     if (shouldRelay) {
-      debug(```RELAYING ${packet.type} FROM LOCAL ${peerInfo.address}:
-        { questions: ${packet.questions.length},
-          answers: ${packet.answers.length},
-          authorities: ${packet.authorities.length},
-          additionals: ${packet.additionals.length},
-        }```);
+      debug('RELAYING %s FROM LOCAL %s: \
+        { questions: %d, answers: %d, authorities: %d, additionals: %d }',
+        packet.type,
+        peerInfo.address,
+        (packet.questions || []).length,
+        (packet.answers || []).length,
+        (packet.authorities || []).length,
+        (packet.additionals || []).length,
+      );
       link.write(linkPacket);
     }
   };
