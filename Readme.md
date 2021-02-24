@@ -6,23 +6,23 @@
 
 ### What does it do
 
-It creates a 1:1 pipe tunnel over simple HTTP and passes all the mDNS requests and responses back and forth through it, essentially merging two separate multicast DNS domains. You can connect more than one client to the server (but *should* you?) - making one big multicast DNS domain. See how dangerous it is?!
+It creates a 1:1 pipe tunnel over simple HTTP and passes all the mDNS requests and responses back and forth through it, effectively merging two multicast DNS domains. You can connect more than one client to the server (but *should* you?) - making one big multicast DNS domain. See how dangerous it is?!
 
 ### Features
 
   - Automatic reconnection upon connection loss
-  - Basic firewall for DNS queries - only packets containing info about services from whitelist will travel through the tunnel
+  - Basic firewall for DNS queries - only packets containing info about services from the whitelist will travel through the tunnel
   - Built in multicast storm prevention - won't relay packets that already been relayed 
 
 ### But why?..
 
-There are certain services that operate over mDNS and refuse to work altogether without it, but mDNS stands for "Multicast DNS" (duh) and multicast has many limitations - and for good reasons most of the time. And if you just need to re-transmit multicast packets from one network to another - avahi in reflector mode would fill your bill 100%, but if you need something more complex like multicasts through Wireguard in a separate heavily-firewalled VLAN over IP-over-Fiber-Channel over IP-over-Avian-Carriers - it's much easier to just establish a tunnel specifically for mDNS.
+There are certain services that operate over mDNS and refuse to work altogether without it, but mDNS stands for "Multicast DNS" (duh) and multicast communication inherently has many limitations. If you just need to re-transmit multicast packets from one network to another - avahi in reflector mode would fit your bill 100%, but if you need something more complex like multicasts through Wireguard in a separate heavily-firewalled VLAN over IP-over-Fiber-Channel over IP-over-Avian-Carriers - it's much easier to just establish a tunnel specifically for mDNS.
 
-By using mDNS Tunneller you can expose your private details to somewhere they're not intended to go. mDNS in your typical home includes A LOT of information about what devices are online (who's home) and what are they doing. mDNS Tunneller has rudimentary built-in firewall that is supposed to mitigate that, but as of now it's very basic and does not offer sufficient personal data protection (no, seriously).
+By using mDNS Tunneller you can expose your private details to somewhere where they were not intended to be. mDNS in a typical home includes A LOT of information about what devices are online (who's home) and what are they doing. mDNS Tunneller has rudimentary built-in firewall that is supposed to mitigate some risks, but as of now it's very basic and does not offer sufficient personal data protection (no, seriously).
 
 ### Configuration files
 
-Default configuration values are stored in `config/defaul.yml`, however it's not advised to edit this file directly as this will mark your git tree with uncommitted changes. Instead, create a `local.yml` file in `config` directory and set any values you want to override there.
+Default configuration values are stored in `config/default.yml`, however it's not advised to edit this file directly as this will mark your git tree with uncommitted changes. Instead, create a `local.yml` file in `config` directory and set any values you want to override there.
 
 #### Configuration with Environmental Variables
 
@@ -51,13 +51,20 @@ Or, you can use Docker:
 docker run -v your_config_file.yml:/app/config/local.yml -p 42069:42069 toxuin/mdns-tunneller
 ```
 
-Then, on the server adjust the interface to be listening at in `config/local.yml` (by default it listens on all interfaces, `0.0.0.0`):
+Then, on the server adjust the interface to be listening for HTTP connections from clients at in `config/local.yml` (by default it listens on all interfaces, `0.0.0.0`):
 
 ```yaml
 interface: 192.168.1.69
 ``` 
 
-Start the server with 
+Optionally, uncomment and adjust the list of names of interfaces where mDNS packets should be injected (by default, will listen and broadcast on all interfaces):
+
+```yaml
+mdnsInterfaces:
+  - en0
+```
+
+Start the server with
 
 ```shell script
 npm run start
@@ -78,6 +85,8 @@ npm run start
 ### Upgrading
 
 Just do a `git pull` on the directory you've cloned this project into.
+
+Make sure you have client and server using same version - otherwise you'll see an endless stream of parsing errors, you then may inject garbage into your network, may quit your job and become a travelling mime. Don't do that.
 
 mDNS Tunneller is beta quality software - please don't use for any critical systems (unless in the events of a zombie apocalypse - then all bets are off, of course).
 

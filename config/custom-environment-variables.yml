@@ -1,6 +1,9 @@
 port: PORT
-enableLoopback: ENABLE_LOOPBACK
+enableIpv6: ENABLE_IPV6
 interface: INTERFACE
+mdnsInterfaces:
+  __name: MDNS_INTERFACES
+  __format: yaml
 sendersBlacklist:
   __name: SENDERS_BLACKLIST
   __format: yaml

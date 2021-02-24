@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "target": "es2018",
+    "module": "commonjs",
+    "lib": ["es2018"],
+    "allowJs": true,
+    "sourceMap": true,
+    "outDir": ".build",
+    "rootDir": "./",
+    "strict": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "preserveConstEnums": true,
+    "resolveJsonModule": true,
+    "incremental": false,
+    "moduleResolution": "node",
+    "baseUrl": "./",
+    "paths": {
+      "*": [
+        "node_modules/*",
+        "types/*"
+      ]
+    },
+    "typeRoots": [
+      "node_modules/@types",
+      "types"
+    ],
+    "types": ["node"]
+  },
+  "include": [
+    "./**/*",
+  ]
+}
