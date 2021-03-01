@@ -43,6 +43,8 @@ Both client and server will need to pull this repo and install all the dependenc
 ```shell script
 git pull https://github.com/toxuin/mdns-tunneller
 npm install
+npm run build
+npm run start:prod
 ```
 
 Or, you can use Docker:
