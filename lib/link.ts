@@ -68,7 +68,7 @@ export class Client<T> extends Link<T> {
     super(false);
     this.isSocketConnected = false;
 
-    const remoteAddress = `http://${config.get('remote')}:${config.get('port')}`;
+    const remoteAddress = `${String(config.get('remote')).match(/^https?:\/\//) ? '' : 'http://'}${config.get('remote')}:${config.get('port')}`;
     console.log(`Connecting to ${remoteAddress}...`);
 
     const PrimusSocket = Primus.createSocket({
