@@ -15,6 +15,10 @@ sendersBlacklist:
 serviceWhitelist:
   - '_homekit._tcp.local'
   - '_hap._tcp.local'
+# UNCOMMENT THIS TO ADD SUPPORT FOR CHROMECAST
+#  - '_googlecast._tcp.local'
 
 # UNCOMMENT THIS TO START AS A CLIENT:
 # remote: 192.168.1.10
+# or
+# remote: https://192.168.1.10
