@@ -41,7 +41,7 @@ mDNS Tunneller requires Node.js 10+ and npm to be installed.
 Both client and server will need to pull this repo and install all the dependencies:
 
 ```shell script
-git pull https://github.com/toxuin/mdns-tunneller
+git clone https://github.com/toxuin/mdns-tunneller
 npm install
 npm run build
 npm run start:prod
