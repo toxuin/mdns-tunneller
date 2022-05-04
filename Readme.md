@@ -2,7 +2,7 @@
 
 ![docker pulls](https://img.shields.io/docker/pulls/toxuin/mdns-tunneller)
 
-⚠️ Warning: you can do serious damage to the network(s) you are running this in. Use this only as a last resort measure, when you have absolutely exhausted all other options. Try [avahi-reflector](https://linux.die.net/man/5/avahi-daemon.conf) and [mdns-repeater](https://bitbucket.org/geekman/mdns-repeater) first.
+⚠️ Warning: you can do serious damage to the network(s) you are running this in. Use this only as a last resort measure, when you have absolutely exhausted all other options. Try [avahi-reflector](https://linux.die.net/man/5/avahi-daemon.conf) and [mdns-repeater](https://github.com/geekman/mdns-repeater) first.
 
 ### What does it do
 
